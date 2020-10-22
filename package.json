@@ -1,0 +1,30 @@
+{
+  "name": "webpack_start_code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server --open --port 3456"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "css-loader": "^4.3.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "bootstrap": "^4.5.2",
+    "copy-webpack-plugin": "^6.1.1"
+  }
+}
