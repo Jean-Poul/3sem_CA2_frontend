@@ -80,7 +80,14 @@ document.getElementById("btn_clearFields").onclick = (e) => {
     e.preventDefault();
     document.getElementById('fName').value = '';
     document.getElementById('lName').value = '';
+    document.getElementById('email').value = '';
     document.getElementById('phoneNumbers').value = '';
+    document.getElementById('street').value = '';
+    document.getElementById('additionalInfo').value = '';
+    document.getElementById('zip').value = '';
+    document.getElementById('hobbies').value = '';
+
+
 }
 
 /*
