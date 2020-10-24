@@ -24,7 +24,7 @@ function getAll() {
                 <td>${user.additionalInfo}</td>
                 <td>${user.zip}</td>
                 <td>${user.city}</td>
-                <td></td>
+                <td>${user.hobbies}</td>
                 <td>&nbsp</td>
                 
             <td><button class="btn btn-warning btn-sm" id="${user.id}" value="btn_editPerson" data-toggle="modal" data-target="#editPersonModal">
@@ -109,7 +109,7 @@ document.getElementById('btn_addperson').onclick = () => {
     const street = document.getElementById('street').value;
     const additionalInfo = document.getElementById('additionalInfo').value;
     const zip = document.getElementById('zip').value;
-    //const hobbies = document.getElementById('hobbies').value;
+    const hobbies = document.getElementById('hobbies').value;
 
     // validate if fname and lname is empty
     const data = {
@@ -120,7 +120,7 @@ document.getElementById('btn_addperson').onclick = () => {
         street: street,
         additionalInfo: additionalInfo,
         zip: zip,
-        //hobbies: hobbies
+        hobbies: hobbies
 
     };
     const options = makeOptions("POST", data);
@@ -189,7 +189,7 @@ outer.onclick = function (e) {
         document.getElementById('estreet').value = '';
         document.getElementById('eadditionalInfo').value = '';
         document.getElementById('ezip').value = '';
-        //document.getElementById('ehobbies').value = '';
+        document.getElementById('ehobbies').value = '';
 
         // fetch uservalues from id and add to inputfield
         fetch(url + id)
@@ -203,7 +203,7 @@ outer.onclick = function (e) {
                 document.getElementById('estreet').value = user.street;
                 document.getElementById('eadditionalInfo').value = user.additionalInfo;
                 document.getElementById('ezip').value = user.zip;
-                //document.getElementById('ehobbies').value = user.hobbies;
+                document.getElementById('ehobbies').value = user.hobbies;
 
 
             })
