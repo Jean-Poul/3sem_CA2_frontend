@@ -177,8 +177,8 @@ outer.onclick = function (e) {
     if (target.value == "btn_editPerson") {
 
         console.log("edit");
-        console.log(target.phoneNumbers);
-        const id = target.phoneNumbers;
+        console.log(target.id);
+        const id = target.id;
 
         // reset inputfields
 
@@ -269,16 +269,16 @@ document.getElementById("btn_searchHobby").onclick = () => {
 
             const header = "<table class=\"table\"><thead><tr><th>Name</th><th>Wikilink</th><th>Category</th><th>Type</th></tr></thead><tbody class=\"outer\">";
             const footer = "</tbody></table>";
-            
+
             const trsHobby = dataHobby.map((hobby) => {
                 return `<tr><td>${hobby.name}</td>
                 <td><a href="${hobby.wikiLink}">${hobby.wikiLink}</a></td>
                 <td>${hobby.category}</td>
                 <td>${hobby.type}</td>
-                <td>&nbsp</td>
             </td></tr>`;
             });
             const trHobbyStr = trsHobby.join('');
+            tbPhone.innerHTML = '';
             tbHobby.innerHTML = header + trHobbyStr + footer;
         });
 }
@@ -323,13 +323,13 @@ searchPhone
 
 document.getElementById("btn_searchPhone").onclick = () => {
     const searchPhone = document.getElementById("searchInput").value;
-    fetch(url + searchPhone)
+    fetch(url + "phone/" + searchPhone)
         .then(res => fetchWithErrorCheck(res))
         .then((dataPhone) => {
 
-            const headerPhone = "<table class=\"table\"><thead><tr><th>First name</th><th>Last name</th><th>E-mail</th><th>Phonenumbers</th><th>Street</th><th>Additional info</th><th>Zipcode</th><th>City</th><th>Hobbies</th></tr></thead><tbody class=\"outer\">";
+            const headerPhone = "<table class=\"table\"><thead><tr><th>Id</th><th>First name</th><th>Last name</th><th>E-mail</th><th>Phonenumbers</th><th>Street</th><th>Additional info</th><th>Zipcode</th><th>City</th><th>Hobbies</th></tr></thead><tbody class=\"outer\">";
             const footerPhone = "</tbody></table>";
-            
+
             const trsPhone = dataPhone.map((phone) => {
                 return `<tr><td>${phone.id}</td>
                 <td>${phone.firstName}</td>
@@ -341,10 +341,10 @@ document.getElementById("btn_searchPhone").onclick = () => {
                 <td>${phone.zip}</td>
                 <td>${phone.city}</td>
                 <td>${phone.hobbies}</td>
-                <td>&nbsp</td>
             </td></tr>`;
             });
             const trPhoneStr = trsPhone.join('');
+            tbHobby.innerHTML = '';
             tbPhone.innerHTML = headerPhone + trPhoneStr + footerPhone;
         });
 }
