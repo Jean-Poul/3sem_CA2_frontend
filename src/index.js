@@ -225,7 +225,7 @@ outer.onclick = function (e) {
             //const eadditionalInfo = document.getElementById('eadditionalInfo').value;
             //const ezip = document.getElementById('ezip').value;
             //const ehobbies = document.getElementById('ehobbies').value;
-            
+
             // validate if efname and elname is empty
             // onclick will close modal??
             const data = {
@@ -257,6 +257,60 @@ outer.onclick = function (e) {
 
 
 };
+
+/*
+searchHobby
+*/
+document.getElementById("btn_searchHobby").onclick = () => {
+    const searchHobby = document.getElementById("searchInput").value;
+    fetch(url + "hobby/" + searchHobby)
+        .then(res => fetchWithErrorCheck(res))
+        .then((dataHobby) => {
+            const trsHobby = dataHobby.map((user) => {
+                return `<tr><td>${user.name}</td>
+                <td>${user.wikiLink}</td>
+                <td>${user.category}</td>
+                <td>${user.type}</td>
+                <td>&nbsp</td>
+            </td></tr>`;
+            });
+            const trHobbyStr = trsHobby.join('');
+            tbHobby.innerHTML = trHobbyStr;
+        });
+}
+
+/*
+searchPhone
+*/
+document.getElementById("btn_searchPhone").onclick = () => {
+    const searchPhone = document.getElementById("searchInput").value;
+    fetch(url + searchPhone)
+        .then(res => fetchWithErrorCheck(res))
+        .then((data) => {
+            const trs = data.map((user) => {
+                return `<tr><td>${user.id}</td>
+                <td>${user.firstName}</td>
+                <td>${user.lastName}</td>
+                <td>${user.email}</td>
+                <td>${user.phoneNumbers}</td>
+                <td>${user.street}</td>
+                <td>${user.additionalInfo}</td>
+                <td>${user.zip}</td>
+                <td>${user.city}</td>
+                <td>${user.hobbies}</td>
+                <td>&nbsp</td>
+                
+            <td><button class="btn btn-warning btn-sm" id="${user.id}" value="btn_editPerson" data-toggle="modal" data-target="#editPersonModal">
+            <i class="material-icons align-middle iconfix">edit</i>edit</button>&nbsp;
+            <button class="btn btn-danger btn-sm" id="${user.id}" value="btn_deletePerson" data-toggle="modal" data-target="#deleteModal">
+            <i class="material-icons align-middle iconfix">delete</i>delete</button>
+            </td></tr>`;
+            });
+            const trStr = trs.join('');
+            tb.innerHTML = trStr;
+        });
+
+}
 
 
 

@@ -112,14 +112,15 @@
     }
 
     .iconfix {
-      font-size:1rem; margin-top: -0.225em;
+      font-size: 1rem;
+      margin-top: -0.225em;
     }
   </style>
 
 </head>
 
 <body>
-  <psdfsdfsdfdsfsdds
+
   <div class="main">
 
     <div id="1">
@@ -138,7 +139,7 @@
             <th>City</th>
             <th>Hobbies</th>
             <th>&nbsp;</th>
-            
+
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -148,10 +149,44 @@
 
 
       <!-- Button trigger add person modal -->
-      <button type="button" class="btn btn-info align-middle" id="btn_addPersonModal" data-toggle="modal" data-target="#addPersonModal">
+      <button type="button" class="btn btn-info align-middle" id="btn_addPersonModal" data-toggle="modal"
+        data-target="#addPersonModal">
         <i class="material-icons align-middle iconfix">add</i>&nbsp;Add New Person
       </button>
       <p id="errorMsg"></p>
+
+      <!-- Searchbar  -->
+      <div class="form-group">
+        <label for="searchBar">Searchbar
+        </label>
+        <input type="text" class="form-control" id="searchInput" placeholder="Enter hobby or phonenumber">
+      </div>
+
+      <!-- Search by hobby  -->
+      <button type="button" class="btn btn-info align-middle" id="btn_searchHobby" 
+        data-target="#searchHobby">
+        <i class="material-icons align-middle iconfix">add</i>&nbsp;Search by Hobby
+      </button>
+      <!-- Search by phone  -->
+      <button type="button" class="btn btn-info align-middle" id="btn_searchPhone"
+        data-target="#searchPhone">
+        <i class="material-icons align-middle iconfix">add</i>&nbsp;Search by Phone
+      </button>
+
+      <div id="hobbyTable">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Wikilink</th>
+              <th>Category</th>
+              <th>Type</th>
+
+            </tr>
+          </thead>
+          <tbody id="tbHobby" class="outer"></tbody>
+        </table>
+      </div>
 
       <!-- Modal add person -->
       <div class="modal fade" id="addPersonModal" tabindex="-1" aria-labelledby="addPersonModalLabel"
@@ -284,17 +319,17 @@
       </div>
 
     </div>
-
-    <script src="bundle.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"></script>
+  </div>
+  <script src="bundle.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
