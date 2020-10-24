@@ -97,12 +97,23 @@ Insert user
 document.getElementById('btn_addperson').onclick = () => {
     const fname = document.getElementById('fName').value;
     const lname = document.getElementById('lName').value;
-    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const phoneNumbers = document.getElementById('phoneNumbers').value;
+    const street = document.getElementById('street').value;
+    const additionalInfo = document.getElementById('additionalInfo').value;
+    const zip = document.getElementById('zip').value;
+    //const hobbies = document.getElementById('hobbies').value;
+
     // validate if fname and lname is empty
     const data = {
         firstName: fname,
         lastName: lname,
-        phone: phone
+        email: email,
+        phoneNumbers: phoneNumbers,
+        street: street,
+        additionalInfo: additionalInfo,
+        zip: zip,
+        //hobbies: hobbies
 
     };
     const options = makeOptions("POST", data);
