@@ -177,8 +177,8 @@ outer.onclick = function (e) {
     if (target.value == "btn_editPerson") {
 
         console.log("edit");
-        console.log(target.id);
-        const id = target.id;
+        console.log(target.phoneNumbers);
+        const id = target.phoneNumbers;
 
         // reset inputfields
 
@@ -266,22 +266,26 @@ document.getElementById("btn_searchHobby").onclick = () => {
     fetch(url + "hobby/" + searchHobby)
         .then(res => fetchWithErrorCheck(res))
         .then((dataHobby) => {
-            const trsHobby = dataHobby.map((user) => {
-                return `<tr><td>${user.name}</td>
-                <td><a href="${user.wikiLink}">${user.wikiLink}</a></td>
-                <td>${user.category}</td>
-                <td>${user.type}</td>
+
+            const header = "<table class=\"table\"><thead><tr><th>Name</th><th>Wikilink</th><th>Category</th><th>Type</th></tr></thead><tbody class=\"outer\">";
+            const footer = "</tbody></table>";
+            
+            const trsHobby = dataHobby.map((hobby) => {
+                return `<tr><td>${hobby.name}</td>
+                <td><a href="${hobby.wikiLink}">${hobby.wikiLink}</a></td>
+                <td>${hobby.category}</td>
+                <td>${hobby.type}</td>
                 <td>&nbsp</td>
             </td></tr>`;
             });
             const trHobbyStr = trsHobby.join('');
-            tbHobby.innerHTML = trHobbyStr;
+            tbHobby.innerHTML = header + trHobbyStr + footer;
         });
 }
 
 /*
 searchPhone
-*/
+
 document.getElementById("btn_searchPhone").onclick = () => {
     const searchPhone = document.getElementById("searchInput").value;
     fetch(url + searchPhone)
@@ -309,7 +313,40 @@ document.getElementById("btn_searchPhone").onclick = () => {
             const trStr = trs.join('');
             tb.innerHTML = trStr;
         });
+}
+*/
 
+
+/*
+searchPhone
+*/
+
+document.getElementById("btn_searchPhone").onclick = () => {
+    const searchPhone = document.getElementById("searchInput").value;
+    fetch(url + searchPhone)
+        .then(res => fetchWithErrorCheck(res))
+        .then((dataPhone) => {
+
+            const headerPhone = "<table class=\"table\"><thead><tr><th>First name</th><th>Last name</th><th>E-mail</th><th>Phonenumbers</th><th>Street</th><th>Additional info</th><th>Zipcode</th><th>City</th><th>Hobbies</th></tr></thead><tbody class=\"outer\">";
+            const footerPhone = "</tbody></table>";
+            
+            const trsPhone = dataPhone.map((phone) => {
+                return `<tr><td>${phone.id}</td>
+                <td>${phone.firstName}</td>
+                <td>${phone.lastName}</td>
+                <td>${phone.email}</td>
+                <td>${phone.phoneNumbers}</td>
+                <td>${phone.street}</td>
+                <td>${phone.additionalInfo}</td>
+                <td>${phone.zip}</td>
+                <td>${phone.city}</td>
+                <td>${phone.hobbies}</td>
+                <td>&nbsp</td>
+            </td></tr>`;
+            });
+            const trPhoneStr = trsPhone.join('');
+            tbPhone.innerHTML = headerPhone + trPhoneStr + footerPhone;
+        });
 }
 
 
