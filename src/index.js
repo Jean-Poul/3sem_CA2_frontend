@@ -268,7 +268,7 @@ document.getElementById("btn_searchHobby").onclick = () => {
         .then((dataHobby) => {
             const trsHobby = dataHobby.map((user) => {
                 return `<tr><td>${user.name}</td>
-                <td>${user.wikiLink}</td>
+                <td><a href="${user.wikiLink}">${user.wikiLink}</a></td>
                 <td>${user.category}</td>
                 <td>${user.type}</td>
                 <td>&nbsp</td>
