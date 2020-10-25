@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 
 const tb = document.getElementById('tb');
-const url = 'http://localhost:8080/ca2/api/person/';
+const url = 'https://www.jplm.dk/ca2/api/person/';
 
 getAll();
 
